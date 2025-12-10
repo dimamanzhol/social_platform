@@ -2,6 +2,15 @@
 
 import { navItems } from '../../data/mockData';
 import { NavItem } from '../../types';
+import {
+  HomeIcon,
+  ExploreIcon,
+  NotificationsIcon,
+  MessagesIcon,
+  BookmarksIcon,
+  ProfileIcon,
+  MoreIcon
+} from '../ui/IconComponents';
 
 interface NavItemComponentProps {
   item: NavItem;
@@ -9,15 +18,38 @@ interface NavItemComponentProps {
 
 function NavItemComponent({ item }: NavItemComponentProps) {
   const baseClasses = "flex items-center space-x-4 p-3 rounded-full transition-all duration-200 hover:bg-hover";
-  const activeClasses = item.isActive ? "font-bold" : "font-normal";
+  const activeClasses = item.isActive ? "font-bold" : "font-bold";
+
+  const getIconComponent = (iconName: string) => {
+    switch (iconName) {
+      case 'HomeIcon':
+        return <HomeIcon />;
+      case 'ExploreIcon':
+        return <ExploreIcon />;
+      case 'NotificationsIcon':
+        return <NotificationsIcon />;
+      case 'MessagesIcon':
+        return <MessagesIcon />;
+      case 'BookmarksIcon':
+        return <BookmarksIcon />;
+      case 'ProfileIcon':
+        return <ProfileIcon />;
+      case 'MoreIcon':
+        return <MoreIcon />;
+      default:
+        return <HomeIcon />;
+    }
+  };
 
   return (
     <a
       href={item.href}
       className={`${baseClasses} ${activeClasses}`}
     >
-      <span className="text-xl">{item.icon}</span>
-      <span className="text-xl hidden xl:block">{item.label}</span>
+      <span className="w-6 h-6 flex items-center justify-center text-white">
+        {getIconComponent(item.icon)}
+      </span>
+      <span className="text-xl hidden xl:block text-white font-bold">{item.label}</span>
       {item.badgeCount && item.badgeCount > 0 && (
         <span className="ml-auto bg-accent-blue text-white text-xs rounded-full px-2 py-1">
           {item.badgeCount}
@@ -45,7 +77,7 @@ export default function NavigationMenu() {
       {/* Post Button */}
       <button className="mt-4 bg-accent-blue hover:bg-accent-hover text-white rounded-full py-3 px-8 font-bold transition-all duration-200 transform hover:scale-105 xl:w-full xl:py-4">
         <span className="xl:hidden">📝</span>
-        <span className="hidden xl:block">Post</span>
+        <span className="hidden xl:block text-white font-bold">Post</span>
       </button>
 
       {/* User Profile Section */}
@@ -57,10 +89,10 @@ export default function NavigationMenu() {
             className="w-10 h-10 rounded-full"
           />
           <div className="hidden xl:block flex-1">
-            <div className="font-bold text-primary">John Developer</div>
-            <div className="text-secondary">@john_developer</div>
+            <div className="font-bold text-white">John Developer</div>
+            <div className="text-white font-bold">@john_developer</div>
           </div>
-          <div className="hidden xl:block text-secondary">⋯</div>
+          <div className="hidden xl:block text-white font-bold">⋯</div>
         </div>
       </div>
     </div>

@@ -275,16 +275,15 @@ export const mockFollowSuggestions: FollowSuggestion[] = [
   }
 ];
 
-// Navigation items
+// Navigation items - SVG icons will be replaced with actual SVG components
 export const navItems = [
-  { id: '1', label: 'Home', icon: '🏠', href: '/', isActive: true },
-  { id: '2', label: 'Explore', icon: '🔍', href: '/explore', isActive: false },
-  { id: '3', label: 'Notifications', icon: '🔔', href: '/notifications', isActive: false, badgeCount: 3 },
-  { id: '4', label: 'Messages', icon: '✉️', href: '/messages', isActive: false },
-  { id: '5', label: 'Bookmarks', icon: '🔖', href: '/bookmarks', isActive: false },
-  { id: '6', label: 'Lists', icon: '📋', href: '/lists', isActive: false },
-  { id: '7', label: 'Profile', icon: '👤', href: '/profile', isActive: false },
-  { id: '8', label: 'More', icon: '⋯', href: '/more', isActive: false },
+  { id: '1', label: 'Home', icon: 'HomeIcon', href: '/', isActive: true },
+  { id: '2', label: 'Explore', icon: 'ExploreIcon', href: '/explore', isActive: false },
+  { id: '3', label: 'Notifications', icon: 'NotificationsIcon', href: '/notifications', isActive: false, badgeCount: 3 },
+  { id: '4', label: 'Messages', icon: 'MessagesIcon', href: '/messages', isActive: false },
+  { id: '5', label: 'Bookmarks', icon: 'BookmarksIcon', href: '/bookmarks', isActive: false },
+  { id: '6', label: 'Profile', icon: 'ProfileIcon', href: '/profile', isActive: false },
+  { id: '7', label: 'More', icon: 'MoreIcon', href: '/more', isActive: false },
 ];
 
 // Current user (for testing)
