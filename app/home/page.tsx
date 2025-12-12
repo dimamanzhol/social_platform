@@ -32,15 +32,13 @@ export default function Home() {
         <FeedHeader />
       </div>
 
-      {/* Compose Tweet */}
-      <ComposeTweet
-        onTweet={handleNewTweet}
-        userAvatar={currentUser.avatar}
-        userName={currentUser.displayName}
-      />
-
-      {/* Tweet Feed */}
+      {/* Tweet Feed with integrated compose */}
       <div>
+        <ComposeTweet
+          onTweet={handleNewTweet}
+          userAvatar={currentUser.avatar}
+          userName={currentUser.displayName}
+        />
         {mainFeedTweets.map((tweet) => (
           <PostCard key={tweet.id} tweet={tweet} />
         ))}
