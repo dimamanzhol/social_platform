@@ -1,6 +1,6 @@
 'use client';
 
-import { Tweet } from '../../types';
+import { Tweet } from '../../../types';
 import UserAvatar from '../ui/UserAvatar';
 import IconButton from '../ui/IconButton';
 import { useState } from 'react';
@@ -101,7 +101,7 @@ export default function PostCard({ tweet, isReply = false }: PostCardProps) {
                 </svg>
               )}
               <span className="text-secondary">
-                @{tweet.username} · {formatRelativeTime(tweet.createdAt)}
+                @{tweet.author.username} · {formatRelativeTime(tweet.createdAt)}
               </span>
               {tweet.replyToUser && (
                 <span className="text-secondary">

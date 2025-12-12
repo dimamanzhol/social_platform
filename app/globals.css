@@ -12,6 +12,7 @@
   --accent-blue: #1DA1F2;
   --accent-hover: #1a91da;
   --danger-red: #F4212E;
+  --warning-yellow: #FFD400;
   --success-green: #00BA7C;
 }
 
@@ -25,6 +26,9 @@
   --color-text-tertiary: var(--text-tertiary);
   --color-accent-blue: var(--accent-blue);
   --color-accent-hover: var(--accent-hover);
+  --color-danger-red: var(--danger-red);
+  --color-warning-yellow: var(--warning-yellow);
+  --color-success-green: var(--success-green);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
 }

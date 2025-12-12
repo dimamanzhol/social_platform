@@ -3,13 +3,14 @@
 interface UserAvatarProps {
   src: string;
   alt: string;
-  size?: 'sm' | 'md' | 'lg';
+  size?: 'sm' | 'medium' | 'md' | 'lg';
   className?: string;
 }
 
-export default function UserAvatar({ src, alt, size = 'md', className = '' }: UserAvatarProps) {
+export default function UserAvatar({ src, alt, size = 'medium', className = '' }: UserAvatarProps) {
   const sizeClasses = {
     sm: 'w-8 h-8',
+    medium: 'w-12 h-12',
     md: 'w-10 h-10',
     lg: 'w-12 h-12'
   };

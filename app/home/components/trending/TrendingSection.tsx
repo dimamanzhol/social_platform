@@ -1,6 +1,6 @@
 'use client';
 
-import { TrendingTopic } from '../../types';
+import { TrendingTopic } from '../../../types';
 
 interface TrendingSectionProps {
   trendingTopics: TrendingTopic[];

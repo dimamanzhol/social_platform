@@ -1,6 +1,6 @@
 'use client';
 
-import { FollowSuggestion } from '../../types';
+import { FollowSuggestion } from '../../../types';
 import UserAvatar from '../ui/UserAvatar';
 
 interface WhoToFollowProps {
