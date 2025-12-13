@@ -2,6 +2,7 @@
 
 import MainLayout from '../home/components/layout/MainLayout';
 import NavigationMenu from '../home/components/navigation/NavigationMenu';
+import MobileBottomNav from '../home/components/navigation/MobileBottomNav';
 import TrendingSection from '../home/components/trending/TrendingSection';
 import WhoToFollow from '../home/components/trending/WhoToFollow';
 import MessageList from './components/MessageList';
@@ -12,6 +13,7 @@ export default function Messages() {
   return (
     <MainLayout
       leftSidebar={<NavigationMenu />}
+      mobileBottomNav={<MobileBottomNav />}
       rightSidebar={
         <>
           <TrendingSection trendingTopics={mockTrendingTopics} />
@@ -21,8 +23,8 @@ export default function Messages() {
     >
       {/* Messages Container */}
       <div className="flex h-[calc(100vh-53px)]">
-        {/* Message List */}
-        <div className="w-80 border-r border-custom flex-shrink-0">
+        {/* Message List - Hidden on mobile, visible on desktop */}
+        <div className="hidden md:flex w-80 border-r border-custom flex-shrink-0">
           <MessageList />
         </div>
 

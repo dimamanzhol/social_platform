@@ -2,6 +2,7 @@
 
 import MainLayout from '../home/components/layout/MainLayout';
 import NavigationMenu from '../home/components/navigation/NavigationMenu';
+import MobileBottomNav from '../home/components/navigation/MobileBottomNav';
 import TrendingSection from '../home/components/trending/TrendingSection';
 import WhoToFollow from '../home/components/trending/WhoToFollow';
 import NotificationTabs from './components/NotificationTabs';
@@ -12,6 +13,7 @@ export default function Notifications() {
   return (
     <MainLayout
       leftSidebar={<NavigationMenu />}
+      mobileBottomNav={<MobileBottomNav />}
       rightSidebar={
         <>
           <TrendingSection trendingTopics={mockTrendingTopics} />

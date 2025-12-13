@@ -2,6 +2,7 @@
 
 import MainLayout from '../home/components/layout/MainLayout';
 import NavigationMenu from '../home/components/navigation/NavigationMenu';
+import MobileBottomNav from '../home/components/navigation/MobileBottomNav';
 import TrendingSection from '../home/components/trending/TrendingSection';
 import WhoToFollow from '../home/components/trending/WhoToFollow';
 import PostCard from '../home/components/feed/PostCard';
@@ -15,6 +16,7 @@ export default function Bookmarks() {
   return (
     <MainLayout
       leftSidebar={<NavigationMenu />}
+      mobileBottomNav={<MobileBottomNav />}
       rightSidebar={
         <>
           <TrendingSection trendingTopics={mockTrendingTopics} />

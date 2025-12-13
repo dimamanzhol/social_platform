@@ -2,6 +2,7 @@
 
 import MainLayout from './components/layout/MainLayout';
 import NavigationMenu from './components/navigation/NavigationMenu';
+import MobileBottomNav from './components/navigation/MobileBottomNav';
 import FeedHeader from './components/feed/FeedHeader';
 import PostCard from './components/feed/PostCard';
 import ComposeTweet from './components/feed/ComposeTweet';
@@ -21,6 +22,7 @@ export default function Home() {
   return (
     <MainLayout
       leftSidebar={<NavigationMenu />}
+      mobileBottomNav={<MobileBottomNav />}
       rightSidebar={
         <>
           <TrendingSection trendingTopics={mockTrendingTopics} />
