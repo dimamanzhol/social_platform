@@ -210,6 +210,34 @@ export const mockTweets: Tweet[] = [
     replyToUser: mockUsers[1],
     language: 'en',
     source: 'X for iPhone',
+  },
+  {
+    id: '8',
+    authorId: '2',
+    author: mockUsers[1], // OpenAI - video post
+    content: '🎥 Check out our latest demo showing GPT-4 Turbo\'s capabilities in real-time video processing and analysis. The future of AI vision is here! 🚀\n\n#AI #MachineLearning #ComputerVision',
+    createdAt: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
+    likesCount: 89234,
+    repostsCount: 5678,
+    repliesCount: 2345,
+    viewsCount: 1234567,
+    bookmarksCount: 8765,
+    likedByCurrentUser: true,
+    repostedByCurrentUser: false,
+    bookmarkedByCurrentUser: false,
+    media: [
+      {
+        id: 'media-8-1',
+        type: 'video',
+        url: '/public/1post.MP4',
+        width: 1280,
+        height: 720,
+        duration: 120,
+        altText: 'GPT-4 Turbo video processing demo'
+      }
+    ],
+    language: 'en',
+    source: 'Web App',
   }
 ];
 
@@ -277,7 +305,7 @@ export const mockFollowSuggestions: FollowSuggestion[] = [
 
 // Navigation items - SVG icons will be replaced with actual SVG components
 export const navItems = [
-  { id: '1', label: 'Home', icon: 'HomeIcon', href: '/', isActive: true },
+  { id: '1', label: 'Home', icon: 'HomeIcon', href: '/home', isActive: true },
   { id: '2', label: 'Explore', icon: 'ExploreIcon', href: '/explore', isActive: false },
   { id: '3', label: 'Notifications', icon: 'NotificationsIcon', href: '/notifications', isActive: false, badgeCount: 3 },
   { id: '4', label: 'Messages', icon: 'MessagesIcon', href: '/messages', isActive: false },
