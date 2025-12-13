@@ -9,9 +9,10 @@ import { useState } from 'react';
 interface PostCardProps {
   tweet: Tweet;
   isReply?: boolean;
+  onClick?: () => void;
 }
 
-export default function PostCard({ tweet, isReply = false }: PostCardProps) {
+export default function PostCard({ tweet, isReply = false, onClick }: PostCardProps) {
   const [isLiked, setIsLiked] = useState(tweet.likedByCurrentUser);
   const [isReposted, setIsReposted] = useState(tweet.repostedByCurrentUser);
   const [isBookmarked, setIsBookmarked] = useState(tweet.bookmarkedByCurrentUser);
@@ -78,7 +79,10 @@ export default function PostCard({ tweet, isReply = false }: PostCardProps) {
   const currentReposts = isReposted ? tweet.repostsCount + 1 : tweet.repostsCount;
 
   return (
-    <article className="border-b border-custom hover:bg-hover transition-colors duration-200">
+    <article
+      className="border-b border-custom hover:bg-hover transition-colors duration-200 cursor-pointer"
+      onClick={onClick}
+    >
       <div className="p-4">
         <div className="flex space-x-3">
           {/* User Avatar */}
@@ -117,7 +121,7 @@ export default function PostCard({ tweet, isReply = false }: PostCardProps) {
                 icon={<Comment size="20" />}
                 label="Reply"
                 count={tweet.repliesCount}
-                onClick={() => {}}
+                onClick={(e) => e.stopPropagation()}
               />
 
               <IconButton
@@ -125,7 +129,10 @@ export default function PostCard({ tweet, isReply = false }: PostCardProps) {
                 label="Repost"
                 count={currentReposts}
                 isActive={isReposted}
-                onClick={handleRepost}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleRepost();
+                }}
               />
 
               <IconButton
@@ -133,15 +140,20 @@ export default function PostCard({ tweet, isReply = false }: PostCardProps) {
                 label="Like"
                 count={currentLikes}
                 isActive={isLiked}
-                onClick={handleLike}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleLike();
+                }}
               />
 
-  
               <IconButton
                 icon={<Bookmark filled={isBookmarked} size="20" />}
                 label="Bookmark"
                 isActive={isBookmarked}
-                onClick={handleBookmark}
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleBookmark();
+                }}
               />
             </div>
           </div>

@@ -60,7 +60,7 @@ export default function MobileBottomNav() {
           }`}
         >
           <div className="w-6 h-6 flex items-center justify-center">
-            {getIconComponent(item.icon, item.isActive)}
+            {getIconComponent(item.icon, item.isActive || false)}
           </div>
           <span className="text-xs mt-1">{item.label}</span>
 

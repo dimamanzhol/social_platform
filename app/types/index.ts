@@ -116,6 +116,28 @@ export interface TweetInteraction {
   timestamp: Date;
 }
 
+// Comment interface for threaded comment system
+export interface Comment {
+  id: string;
+  author: User;
+  content: string;
+  createdAt: Date;
+  likesCount: number;
+  repliesCount: number;
+  likedByCurrentUser: boolean;
+  replies: Comment[];
+  parentCommentId?: string;
+  level: number; // nesting level (0 = top-level)
+}
+
+// Comment interaction interface
+export interface CommentInteraction {
+  type: 'like' | 'reply';
+  commentId: string;
+  userId: string;
+  timestamp: Date;
+}
+
 // Notification interface (for future implementation)
 export interface Notification {
   id: string;
