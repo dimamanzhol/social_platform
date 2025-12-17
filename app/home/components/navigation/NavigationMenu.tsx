@@ -2,6 +2,7 @@
 
 import { navItems } from "../../data/mockData";
 import { NavItem } from "../../../types";
+import { Button } from "../ui/button";
 import {
   HomeIcon,
   ExploreIcon,
@@ -44,14 +45,14 @@ function NavItemComponent({ item }: NavItemComponentProps) {
 
   return (
     <a href={item.href} className={`${baseClasses} ${activeClasses}`}>
-      <span className="w-6 h-6 flex items-center justify-center text-white">
+      <span className="w-6 h-6 flex items-center justify-center text-primary">
         {getIconComponent(item.icon)}
       </span>
-      <span className="text-xl hidden xl:block text-white font-bold">
+      <span className="text-xl hidden xl:block text-primary font-bold">
         {item.label}
       </span>
       {item.badgeCount && item.badgeCount > 0 && (
-        <span className="ml-auto bg-accent-blue text-white text-xs rounded-full px-2 py-1">
+        <span className="ml-auto bg-primary text-white text-xs rounded-full px-2 py-1">
           {item.badgeCount}
         </span>
       )}
@@ -82,16 +83,28 @@ export default function NavigationMenu() {
         ))}
       </div>
 
+      {/* Action Button */}
+      <div className="flex items-start gap-2 mb-4">
+        <Button className="flex-1 btn-primary rounded-full font-bold">
+          Post
+        </Button>
+        <Button size="icon" aria-label="Quick post" className="btn-primary rounded-full">
+          <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
+            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+          </svg>
+        </Button>
+      </div>
+
       {/* User Profile Section */}
       <div className="mt-auto p-3 rounded-full hover:bg-hover transition-all duration-200 cursor-pointer">
         <div className="flex items-center space-x-3">
           <img
-            src="https://unavatar.io/john"
+            src="/avatar.png"
             alt="User"
             className="w-10 h-10 rounded-full"
           />
           <div className="hidden xl:block flex-1">
-            <div className="font-bold text-white">Dinmukhamed Amanzhol</div>
+            <div className="font-bold text-primary">Dinmukhamed Amanzhol</div>
             <div className="text-secondary text-sm">@dimamanzhol</div>
           </div>
           <div className="hidden xl:block text-secondary">⋯</div>

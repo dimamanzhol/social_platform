@@ -1,7 +1,6 @@
 'use client';
 
 import { useState } from 'react';
-import UserAvatar from '../ui/UserAvatar';
 
 interface ComposeTweetProps {
   onTweet?: (content: string) => void;
@@ -13,7 +12,7 @@ interface ComposeTweetProps {
 export default function ComposeTweet({
   onTweet,
   placeholder = "What is happening?!",
-  userAvatar = "https://unavatar.io/john",
+  userAvatar = "/avatar.png",
   userName = "John Developer"
 }: ComposeTweetProps) {
   const [content, setContent] = useState('');
@@ -59,10 +58,10 @@ export default function ComposeTweet({
         <div className="flex space-x-3">
           {/* User Avatar */}
           <div className="flex-shrink-0">
-            <UserAvatar
-              src={userAvatar}
+            <img
+              src="/avatar.png"
               alt={userName}
-              size="medium"
+              className="w-12 h-12 rounded-full object-cover"
             />
           </div>
 
