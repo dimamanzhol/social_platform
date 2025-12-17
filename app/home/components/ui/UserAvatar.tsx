@@ -24,11 +24,17 @@ export default function UserAvatar({ src, alt, size = 'medium', className = '' }
   };
 
   return (
-    <img
-      src={src}
-      alt={alt}
-      className={`${getSizeClass()} rounded-full object-cover ${className}`}
-      style={typeof size === 'number' ? { width: size, height: size } : {}}
-    />
+    <div className={`${getSizeClass()} rounded-full overflow-hidden bg-gray-800 ${className}`}>
+      <img
+        src={src || `https://unavatar.io/${alt}`}
+        alt={alt}
+        className="w-full h-full object-cover"
+        style={typeof size === 'number' ? { width: size, height: size } : {}}
+        onError={(e) => {
+          const target = e.target as HTMLImageElement;
+          target.src = `https://ui-avatars.com/api/?name=${encodeURIComponent(alt)}&background=1DA1F2&color=fff&size=${typeof size === 'number' ? size * 2 : 80}`;
+        }}
+      />
+    </div>
   );
 }

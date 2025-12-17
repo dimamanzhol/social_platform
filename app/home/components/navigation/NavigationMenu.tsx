@@ -2,7 +2,6 @@
 
 import { navItems } from "../../data/mockData";
 import { NavItem } from "../../../types";
-import { Button } from "../ui/button";
 import {
   HomeIcon,
   ExploreIcon,
@@ -62,29 +61,29 @@ function NavItemComponent({ item }: NavItemComponentProps) {
 
 export default function NavigationMenu() {
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="flex flex-col h-full px-2">
       {/* Logo */}
       <div className="p-3 mb-4">
         <svg
           viewBox="0 0 24 24"
           aria-label="X"
-          className="w-8 h-8"
+          className="w-8 h-8 text-white"
           fill="currentColor"
         >
           <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path>
         </svg>
       </div>
 
+  
       {/* Navigation Items */}
-      {navItems.map((item) => (
-        <NavItemComponent key={item.id} item={item} />
-      ))}
-
-      {/* Post Button */}
-      <Button className="w-full bg-white text-black hover:bg-gray-100 rounded-full font-extrabold py-3">Post</Button>
+      <div className="space-y-1 mb-4">
+        {navItems.map((item) => (
+          <NavItemComponent key={item.id} item={item} />
+        ))}
+      </div>
 
       {/* User Profile Section */}
-      <div className="mt-auto mb-4 p-3 rounded-full hover:bg-hover transition-all duration-200 cursor-pointer">
+      <div className="mt-auto p-3 rounded-full hover:bg-hover transition-all duration-200 cursor-pointer">
         <div className="flex items-center space-x-3">
           <img
             src="https://unavatar.io/john"
@@ -93,9 +92,9 @@ export default function NavigationMenu() {
           />
           <div className="hidden xl:block flex-1">
             <div className="font-bold text-white">Dinmukhamed Amanzhol</div>
-            <div className="text-white font-bold">@dimamanzhol</div>
+            <div className="text-secondary text-sm">@dimamanzhol</div>
           </div>
-          <div className="hidden xl:block text-white font-bold">⋯</div>
+          <div className="hidden xl:block text-secondary">⋯</div>
         </div>
       </div>
     </div>

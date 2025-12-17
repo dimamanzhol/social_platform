@@ -19,10 +19,14 @@ export default function IconButton({
   onClick,
   className = ''
 }: IconButtonProps) {
-  const baseClasses = "flex items-center space-x-2 p-2 rounded-full transition-all duration-200 hover:bg-hover group";
+  const baseClasses = "flex items-center space-x-2 p-2 rounded-full transition-all duration-200 hover:bg-gray-900 group relative";
 
-  const activeColorClasses = isActive ? "text-accent-blue" : "text-secondary group-hover:text-primary";
-  const countClasses = isActive ? "text-accent-blue" : "text-secondary group-hover:text-primary";
+  const activeColorClasses = isActive
+    ? "text-accent-blue"
+    : "text-secondary hover:text-primary";
+  const countClasses = isActive
+    ? "text-accent-blue"
+    : "text-secondary hover:text-primary";
 
   return (
     <button
@@ -34,10 +38,12 @@ export default function IconButton({
         {icon}
       </span>
       {count !== undefined && count > 0 && (
-        <span className={`text-sm ${countClasses}`}>
+        <span className={`text-sm ${countClasses} min-w-[1rem] text-right`}>
           {formatCount(count)}
         </span>
       )}
+      {/* Subtle background effect on hover */}
+      <div className="absolute inset-0 rounded-full bg-accent-blue opacity-0 group-hover:opacity-10 transition-opacity duration-200" />
     </button>
   );
 }
