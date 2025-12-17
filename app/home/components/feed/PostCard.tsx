@@ -158,6 +158,31 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
           </div>
         </div>
 
+        {/* Media Content */}
+        {tweet.media && tweet.media.length > 0 && (
+          <div style={{ marginTop: '12px' }}>
+            {tweet.media.map((media) => (
+              <div key={media.id} className="rounded-lg overflow-hidden">
+                {media.type === 'image' ? (
+                  <img
+                    src={media.url}
+                    alt={media.altText}
+                    className="w-full h-auto"
+                    style={{ maxHeight: '400px', objectFit: 'cover', aspectRatio: '4/3' }}
+                  />
+                ) : (
+                  <video
+                    src={media.url}
+                    className="w-full rounded-lg"
+                    controls
+                    style={{ maxHeight: '400px', aspectRatio: '4/3' }}
+                  />
+                )}
+              </div>
+            ))}
+          </div>
+        )}
+
         {/* Post Footer */}
         <div
           className="flex items-center justify-between"

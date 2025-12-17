@@ -90,7 +90,7 @@ export const mockUsers: User[] = [
 
 // Mock tweet data
 export const mockTweets: Tweet[] = [
-  {
+    {
     id: '1',
     authorId: '1',
     author: mockUsers[0], // Elon Musk
@@ -214,26 +214,25 @@ export const mockTweets: Tweet[] = [
   {
     id: '8',
     authorId: '2',
-    author: mockUsers[1], // OpenAI - video post
-    content: '🎥 Check out our latest demo showing GPT-4 Turbo\'s capabilities in real-time video processing and analysis. The future of AI vision is here! 🚀\n\n#AI #MachineLearning #ComputerVision',
-    createdAt: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
-    likesCount: 89234,
-    repostsCount: 5678,
-    repliesCount: 2345,
-    viewsCount: 1234567,
-    bookmarksCount: 8765,
-    likedByCurrentUser: true,
+    author: mockUsers[1], // OpenAI - funny post with GIF
+    content: 'When your code works on the first try... but you forgot to save it 💀\n\n😭🤯🤖 #DeveloperLife #ProgrammingHumor',
+    createdAt: new Date('2024-12-17T19:00:00Z'), // 5 minutes ago
+    likesCount: 45678,
+    repostsCount: 987,
+    repliesCount: 234,
+    viewsCount: 567890,
+    bookmarksCount: 876,
+    likedByCurrentUser: false,
     repostedByCurrentUser: false,
     bookmarkedByCurrentUser: false,
     media: [
       {
         id: 'media-8-1',
-        type: 'video',
-        url: '/public/1post.MP4',
-        width: 1280,
-        height: 720,
-        duration: 120,
-        altText: 'GPT-4 Turbo video processing demo'
+        type: 'image',
+        url: '/brainrot.gif',
+        width: 400,
+        height: 400,
+        altText: 'Brainrot GIF - When code works but you forgot to save'
       }
     ],
     language: 'en',
