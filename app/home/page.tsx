@@ -49,9 +49,7 @@ export default function Home() {
         </>
       }
     >
-      <div className="border-b border-custom">
-        <FeedHeader />
-      </div>
+      <FeedHeader />
 
       {/* Tweet Feed with integrated compose */}
       <div>
