@@ -91,6 +91,33 @@ export const mockUsers: User[] = [
 // Mock tweet data
 export const mockTweets: Tweet[] = [
     {
+    id: '0',
+    authorId: '2',
+    author: mockUsers[1], // OpenAI
+    content: 'Me trying to fix a bug with the help of ChatGPT:\n\nChatGPT: "Try this simple solution"\nMe: *copies and pastes*\nComputer: *explodes*\nChatGPT: "My bad" 💀\n\n#PairProgramming #AIProblems',
+    createdAt: new Date('2024-12-17T20:00:00Z'), // 1 hour ago
+    likesCount: 98765,
+    repostsCount: 3210,
+    repliesCount: 543,
+    viewsCount: 1234567,
+    bookmarksCount: 2109,
+    likedByCurrentUser: false,
+    repostedByCurrentUser: false,
+    bookmarkedByCurrentUser: false,
+    media: [
+      {
+        id: 'media-0-1',
+        type: 'image',
+        url: '/denpotter.png',
+        width: 400,
+        height: 400,
+        altText: 'Harry Potter looking confused while coding meme'
+      }
+    ],
+    language: 'en',
+    source: 'X for iPhone',
+  },
+    {
     id: '1',
     authorId: '1',
     author: mockUsers[0], // Elon Musk
@@ -111,14 +138,14 @@ export const mockTweets: Tweet[] = [
     id: '2',
     authorId: '2',
     author: mockUsers[1], // OpenAI
-    content: 'GPT-4 Turbo is now available to all Plus users. We\'ve improved performance and reduced costs by 3x. The future of AI assistance is here! 🤖\n\nLearn more: openai.com/gpt-4-turbo',
+    content: 'GPT-4 Turbo is now available to all Plus users. We\'ve improved performance and reduced costs by 3x. The future of AI assistance is here! 🤖\n\nhttps://openai.com/gpt-4-turbo',
     createdAt: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
     likesCount: 234567,
     repostsCount: 8765,
     repliesCount: 4321,
     viewsCount: 3210987,
     bookmarksCount: 9876,
-    likedByCurrentUser: true,
+    likedByCurrentUser: false,
     repostedByCurrentUser: false,
     bookmarkedByCurrentUser: true,
     language: 'en',
@@ -152,7 +179,7 @@ export const mockTweets: Tweet[] = [
     repliesCount: 3210,
     viewsCount: 1987654,
     bookmarksCount: 8765,
-    likedByCurrentUser: true,
+    likedByCurrentUser: false,
     repostedByCurrentUser: false,
     bookmarkedByCurrentUser: false,
     language: 'en',
@@ -186,7 +213,7 @@ export const mockTweets: Tweet[] = [
     repliesCount: 2109,
     viewsCount: 1654321,
     bookmarksCount: 5432,
-    likedByCurrentUser: true,
+    likedByCurrentUser: false,
     repostedByCurrentUser: true,
     bookmarkedByCurrentUser: false,
     language: 'en',
@@ -306,18 +333,15 @@ export const mockFollowSuggestions: FollowSuggestion[] = [
 export const navItems = [
   { id: '1', label: 'Home', icon: 'HomeIcon', href: '/home', isActive: true },
   { id: '2', label: 'Explore', icon: 'ExploreIcon', href: '/explore', isActive: false },
-  { id: '3', label: 'Notifications', icon: 'NotificationsIcon', href: '/notifications', isActive: false, badgeCount: 3 },
-  { id: '4', label: 'Messages', icon: 'MessagesIcon', href: '/messages', isActive: false },
-  { id: '5', label: 'Bookmarks', icon: 'BookmarksIcon', href: '/bookmarks', isActive: false },
-  { id: '6', label: 'Profile', icon: 'ProfileIcon', href: '/profile', isActive: false },
+  { id: '3', label: 'Profile', icon: 'ProfileIcon', href: '/profile', isActive: false },
 ];
 
 // Current user (for testing)
 export const currentUser: User = {
   id: 'current-user',
-  username: 'john_developer',
-  displayName: 'John Developer',
-  avatar: 'https://unavatar.io/john',
+  username: 'dimamanzhol',
+  displayName: 'Dinmukhamed Amanzhol',
+  avatar: '/avatar.png',
   bio: 'Full-stack developer | AI enthusiast | Building the future',
   location: 'San Francisco, CA',
   website: 'john.dev',
@@ -535,7 +559,7 @@ export const mockBookmarkedTweets = [
     repliesCount: 7890,
     viewsCount: 5432109,
     bookmarksCount: 12345,
-    likedByCurrentUser: true,
+    likedByCurrentUser: false,
     repostedByCurrentUser: false,
     bookmarkedByCurrentUser: true,
     language: 'en',
@@ -552,7 +576,7 @@ export const mockBookmarkedTweets = [
     repliesCount: 4321,
     viewsCount: 3210987,
     bookmarksCount: 9876,
-    likedByCurrentUser: true,
+    likedByCurrentUser: false,
     repostedByCurrentUser: false,
     bookmarkedByCurrentUser: true,
     language: 'en',
@@ -586,7 +610,7 @@ export const mockBookmarkedTweets = [
     repliesCount: 3210,
     viewsCount: 1987654,
     bookmarksCount: 8765,
-    likedByCurrentUser: true,
+    likedByCurrentUser: false,
     repostedByCurrentUser: false,
     bookmarkedByCurrentUser: true,
     language: 'en',

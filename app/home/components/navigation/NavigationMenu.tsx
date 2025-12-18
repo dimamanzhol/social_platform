@@ -77,22 +77,22 @@ export default function NavigationMenu() {
 
   
       {/* Navigation Items */}
-      <div className="space-y-1 mb-4">
+      <div className="space-y-1">
         {navItems.map((item) => (
           <NavItemComponent key={item.id} item={item} />
         ))}
       </div>
 
-      {/* Action Button */}
-      <div className="flex items-start gap-2 mb-4">
-        <Button className="flex-1 btn-primary rounded-full font-bold">
-          Post
-        </Button>
-        <Button size="icon" aria-label="Quick post" className="btn-primary rounded-full">
-          <svg viewBox="0 0 24 24" className="w-4 h-4" fill="currentColor">
-            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+      {/* Actions Section */}
+      <div className="mt-4 space-y-1">
+        <div className="flex items-center gap-2 p-3 rounded-full hover:bg-hover transition-all duration-200 cursor-pointer">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-primary" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
           </svg>
-        </Button>
+          <span className="text-xl hidden xl:block text-primary font-bold">
+            Likes
+          </span>
+        </div>
       </div>
 
       {/* User Profile Section */}
@@ -109,6 +109,13 @@ export default function NavigationMenu() {
           </div>
           <div className="hidden xl:block text-secondary">⋯</div>
         </div>
+      </div>
+
+      {/* Post Button */}
+      <div className="pb-4">
+        <Button className="w-full btn-primary rounded-full font-bold py-3">
+          Post
+        </Button>
       </div>
     </div>
   );

@@ -16,7 +16,9 @@ import { useState } from 'react';
 export default function Home() {
   // Filter out reply tweets for the main feed
   const mainFeedTweets = mockTweets.filter(tweet => !tweet.replyToTweetId);
+  const followingTweets = mockTweets.filter(tweet => !tweet.replyToTweetId && tweet.authorId !== '1'); // Filter out non-followed users
   const [expandedPost, setExpandedPost] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'foryou' | 'following'>('foryou');
 
   const handleNewTweet = (content: string) => {
     console.log('New tweet:', content);
@@ -49,16 +51,18 @@ export default function Home() {
         </>
       }
     >
-      <FeedHeader />
+      <FeedHeader activeTab={activeTab} onTabChange={setActiveTab} />
 
       {/* Tweet Feed with integrated compose */}
       <div>
-        <ComposeTweet
-          onTweet={handleNewTweet}
-          userAvatar={currentUser.avatar}
-          userName={currentUser.displayName}
-        />
-        {mainFeedTweets.map((tweet) => (
+        {activeTab === 'foryou' && (
+          <>
+            <ComposeTweet
+              onTweet={handleNewTweet}
+              userAvatar={currentUser.avatar}
+              userName={currentUser.displayName}
+            />
+            {mainFeedTweets.map((tweet) => (
           <div key={tweet.id}>
             <PostCard
               tweet={tweet}
@@ -77,6 +81,37 @@ export default function Home() {
             )}
           </div>
         ))}
+          </>
+        )}
+
+        {activeTab === 'following' && (
+          <>
+            <ComposeTweet
+              onTweet={handleNewTweet}
+              userAvatar={currentUser.avatar}
+              userName={currentUser.displayName}
+            />
+            {followingTweets.map((tweet) => (
+              <div key={tweet.id}>
+                <PostCard
+                  tweet={tweet}
+                  onClick={() => handlePostClick(tweet.id)}
+                />
+                {expandedPost === tweet.id && (
+                  <CommentsSection
+                    comments={mockComments}
+                    onAddComment={handleAddComment}
+                    onReplyComment={handleReplyComment}
+                    onLikeComment={handleLikeComment}
+                    currentUser={currentUser}
+                    showSortOptions={false}
+                    title=""
+                  />
+                )}
+              </div>
+            ))}
+          </>
+        )}
       </div>
     </MainLayout>
   );

@@ -53,7 +53,7 @@ export default function ComposeTweet({
   };
 
   return (
-    <div className={`transition-colors duration-200 ${isExpanded ? 'bg-hover' : ''}`}>
+    <div>
       <div className={`${isExpanded ? 'p-4' : 'py-3 px-4'}`}>
         <div className="flex space-x-3">
           {/* User Avatar */}

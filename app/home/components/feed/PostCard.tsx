@@ -11,9 +11,11 @@ interface PostCardProps {
 
 export default function PostCard({ tweet, isReply = false, onClick }: PostCardProps) {
   const [isLiked, setIsLiked] = useState(tweet.likedByCurrentUser);
+  const [likesCount, setLikesCount] = useState(tweet.likesCount);
 
   const handleLike = () => {
     setIsLiked(!isLiked);
+    setLikesCount(isLiked ? likesCount - 1 : likesCount + 1);
   };
 
   const handleComment = () => {
@@ -22,6 +24,15 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
 
   const handleShare = () => {
     console.log('Share clicked');
+  };
+
+  const formatNumber = (num: number): string => {
+    if (num >= 1000000) {
+      return (num / 1000000).toFixed(1) + 'M';
+    } else if (num >= 1000) {
+      return (num / 1000).toFixed(1) + 'K';
+    }
+    return num.toString();
   };
 
   const formatRelativeTime = (date: Date) => {
@@ -48,19 +59,20 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
       .map((word, index) => {
         if (word.startsWith('@')) {
           return (
-            <span key={index} className="text-link hover:underline cursor-pointer">
+            <span key={index} className="text-[var(--accent-blue)] hover:underline cursor-pointer font-medium">
               {word}{' '}
             </span>
           );
         } else if (word.startsWith('#')) {
+          // Use primary orange color for hashtags
           return (
-            <span key={index} className="text-link hover:underline cursor-pointer">
+            <span key={index} className="text-[#FF5722] hover:underline cursor-pointer font-medium">
               {word}{' '}
             </span>
           );
         } else if (word.startsWith('http')) {
           return (
-            <span key={index} className="text-link hover:underline cursor-pointer">
+            <span key={index} className="text-[#FF8A65] hover:underline cursor-pointer font-medium">
               {word}{' '}
             </span>
           );
@@ -73,7 +85,7 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
     <article
       className="w-full bg-card rounded-xl mb-4 overflow-hidden cursor-pointer hover:shadow-lg transition-all duration-200"
       style={{
-        boxShadow: 'var(--shadow-md)',
+        boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06), 0 10px 15px -3px rgba(0, 0, 0, 0.1)',
         marginBottom: '16px'
       }}
       onClick={onClick}
@@ -149,9 +161,9 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
           <div
             className="whitespace-pre-wrap break-words text-primary"
             style={{
-              fontSize: '15px',
+              fontSize: '16px',
               fontWeight: '400',
-              lineHeight: '1.5'
+              lineHeight: '1.6'
             }}
           >
             {processTweetContent(tweet.content)}
@@ -168,14 +180,14 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
                     src={media.url}
                     alt={media.altText}
                     className="w-full h-auto"
-                    style={{ maxHeight: '400px', objectFit: 'cover', aspectRatio: '4/3' }}
+                    style={{ maxHeight: '400px', objectFit: 'cover' }}
                   />
                 ) : (
                   <video
                     src={media.url}
                     className="w-full rounded-lg"
                     controls
-                    style={{ maxHeight: '400px', aspectRatio: '4/3' }}
+                    style={{ maxHeight: '400px' }}
                   />
                 )}
               </div>
@@ -200,21 +212,27 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
             }}
             className={`flex items-center gap-2 px-3 py-2 rounded-md transition-all duration-200 ${
               isLiked
-                ? 'text-primary hover:bg-primary-light'
+                ? 'text-[#FF5722] hover:bg-[#FF5722] hover:bg-opacity-10'
                 : 'text-secondary hover:bg-hover'
             }`}
           >
             <svg
               viewBox="0 0 24 24"
               fill={isLiked ? 'currentColor' : 'none'}
-              stroke="currentColor"
+              stroke={isLiked ? 'currentColor' : 'currentColor'}
               strokeWidth="2"
-              style={{ width: '20px', height: '20px' }}
+              style={{ width: '20px', height: '20px', color: isLiked ? '#FF5722' : 'currentColor' }}
             >
               <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
             </svg>
-            <span style={{ fontSize: '14px', fontWeight: '500' }}>
-              {isLiked ? tweet.likesCount + 1 : tweet.likesCount}
+            <span
+            style={{
+              fontSize: '14px',
+              fontWeight: '500',
+              color: isLiked ? '#FF5722' : 'inherit'
+            }}
+          >
+              {formatNumber(likesCount)}
             </span>
           </button>
 
@@ -230,7 +248,7 @@ export default function PostCard({ tweet, isReply = false, onClick }: PostCardPr
               <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
             </svg>
             <span style={{ fontSize: '14px', fontWeight: '500' }}>
-              {tweet.repliesCount}
+              {formatNumber(tweet.repliesCount)}
             </span>
           </button>
 
