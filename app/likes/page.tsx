@@ -132,28 +132,25 @@ export default function LikesPage() {
     >
       {/* Page Header */}
       <div className="bg-card sticky top-0 z-10 border-b border-default">
-        <div className="px-4 py-3">
-          <div className="flex items-center">
-            <button
-              className="mr-4 p-2 rounded-full hover:bg-hover transition-colors duration-200"
-              onClick={() => window.history.back()}
-            >
-              <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2">
-                <path d="M19 12H5M12 19l-7-7 7-7"/>
-              </svg>
-            </button>
-            <div>
-              <h1 className="text-xl font-bold text-primary">Likes</h1>
-              <p className="text-sm text-secondary">
-                {likedTweets.length} {likedTweets.length === 1 ? 'post' : 'posts'}
-              </p>
-            </div>
+        <div className="flex items-center px-4 py-3">
+          <button
+            className="mr-4 p-2 rounded-full hover:bg-hover transition-colors duration-200"
+            onClick={() => window.history.back()}
+          >
+            <svg viewBox="0 0 24 24" className="w-6 h-6" fill="none" stroke="currentColor" strokeWidth="2">
+              <path d="M19 12H5M12 19l-7-7 7-7"/>
+            </svg>
+          </button>
+          <div>
+            <h1 className="text-xl font-bold text-primary">Likes</h1>
+            <p className="text-sm text-secondary">
+              {likedTweets.length} {likedTweets.length === 1 ? 'post' : 'posts'}
+            </p>
           </div>
         </div>
       </div>
 
       {/* Liked Posts */}
-      <div>
         {likedTweets.length > 0 ? (
           likedTweets.map((tweet) => (
             <div key={tweet.id}>
