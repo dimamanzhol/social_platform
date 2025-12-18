@@ -12,13 +12,47 @@ import WhoToFollow from './components/trending/WhoToFollow';
 import { mockTweets, mockTrendingTopics, mockFollowSuggestions, currentUser } from './data/mockData';
 import { mockComments } from './data/mockComments';
 import { useState } from 'react';
+import { useUser } from '@clerk/nextjs';
+import { useUserProfile } from '../../contexts/UserContext';
 
 export default function Home() {
+  const { user, isLoaded: clerkLoaded } = useUser();
+  const { userProfile, loading: profileLoading } = useUserProfile();
+
+  // Move all hooks to the top before any conditional returns
+  const [expandedPost, setExpandedPost] = useState<string | null>(null);
+  const [activeTab, setActiveTab] = useState<'foryou' | 'following'>('foryou');
+
+  if (!clerkLoaded || profileLoading) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div>Loading...</div>
+      </div>
+    );
+  }
+
+  if (!user) {
+    return (
+      <div className="min-h-screen bg-black text-white flex items-center justify-center">
+        <div className="text-center">
+          <h1 className="text-2xl font-bold mb-4">Please sign in to continue</h1>
+          <p className="text-gray-400">You need to be authenticated to view this page.</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Use the user profile from Supabase, fallback to Clerk data if needed
+  const currentUser = userProfile || {
+    id: user.id,
+    username: user.username || 'user',
+    displayName: user.firstName || user.fullName || 'User',
+    avatar: user.imageUrl || '',
+  };
+
   // Filter out reply tweets for the main feed
   const mainFeedTweets = mockTweets.filter(tweet => !tweet.replyToTweetId);
   const followingTweets = mockTweets.filter(tweet => !tweet.replyToTweetId && tweet.authorId !== '1'); // Filter out non-followed users
-  const [expandedPost, setExpandedPost] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<'foryou' | 'following'>('foryou');
 
   const handleNewTweet = (content: string) => {
     console.log('New tweet:', content);
@@ -59,7 +93,7 @@ export default function Home() {
           <>
             <ComposeTweet
               onTweet={handleNewTweet}
-              userAvatar={currentUser.avatar}
+              userAvatar={currentUser.avatar || currentUser.avatar_url}
               userName={currentUser.displayName}
             />
             {mainFeedTweets.map((tweet) => (
@@ -88,7 +122,7 @@ export default function Home() {
           <>
             <ComposeTweet
               onTweet={handleNewTweet}
-              userAvatar={currentUser.avatar}
+              userAvatar={currentUser.avatar || currentUser.avatar_url}
               userName={currentUser.displayName}
             />
             {followingTweets.map((tweet) => (

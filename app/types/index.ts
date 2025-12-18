@@ -3,41 +3,53 @@ export interface User {
   id: string;
   username: string; // @username
   displayName: string;
-  avatar: string;
+  avatar?: string;
+  avatar_url?: string;
   bio?: string;
   location?: string;
   website?: string;
-  joinDate: Date;
+  joinDate?: Date;
+  created_at?: string;
   followersCount: number;
   followingCount: number;
   tweetsCount: number;
   verified: boolean;
   pinnedTweetId?: string;
+  is_following?: boolean;
 }
 
 // Tweet interface for posts
 export interface Tweet {
   id: string;
-  authorId: string;
-  author: User;
+  authorId?: string;
+  user_id?: string;
+  author?: User;
+  profiles?: User;
   content: string;
-  createdAt: Date;
+  createdAt?: Date;
+  created_at?: string;
   likesCount: number;
   repostsCount: number;
   repliesCount: number;
   viewsCount: number;
   bookmarksCount: number;
-  likedByCurrentUser: boolean;
-  repostedByCurrentUser: boolean;
-  bookmarkedByCurrentUser: boolean;
+  likedByCurrentUser?: boolean;
+  repostedByCurrentUser?: boolean;
+  bookmarkedByCurrentUser?: boolean;
+  liked_by_user?: boolean;
+  reposted_by_user?: boolean;
+  bookmarked_by_user?: boolean;
   replyToTweetId?: string;
+  reply_to_tweet_id?: string;
   replyToUser?: User;
+  reply_to_user_id?: string;
   quotedTweetId?: string;
+  quoted_tweet_id?: string;
   quotedTweet?: Tweet;
   media?: TweetMedia[];
   poll?: TweetPoll;
-  language: string;
-  source: string; // e.g., "Twitter Web App", "iPhone"
+  language?: string;
+  source?: string; // e.g., "Twitter Web App", "iPhone"
 }
 
 // Media attachments for tweets
@@ -119,15 +131,21 @@ export interface TweetInteraction {
 // Comment interface for threaded comment system
 export interface Comment {
   id: string;
-  author: User;
+  user_id?: string;
+  author?: User;
+  profiles?: User;
   content: string;
-  createdAt: Date;
+  createdAt?: Date;
+  created_at?: string;
   likesCount: number;
   repliesCount: number;
-  likedByCurrentUser: boolean;
-  replies: Comment[];
+  likedByCurrentUser?: boolean;
+  liked_by_user?: boolean;
+  replies?: Comment[];
   parentCommentId?: string;
-  level: number; // nesting level (0 = top-level)
+  parent_comment_id?: string;
+  level?: number; // nesting level (0 = top-level)
+  tweet_id?: string;
 }
 
 // Comment interaction interface
@@ -147,4 +165,27 @@ export interface Notification {
   text?: string;
   isRead: boolean;
   createdAt: Date;
+}
+
+// Authentication types
+export interface AuthUser {
+  id: string;
+  email?: string;
+  user_metadata?: {
+    username?: string;
+    display_name?: string;
+    [key: string]: any;
+  };
+}
+
+export interface AuthState {
+  user: AuthUser | null;
+  loading: boolean;
+  error: string | null;
+}
+
+export interface AuthContextType extends AuthState {
+  signUp: (data: { email: string; password: string; username: string; display_name: string }) => Promise<{ error: string | null; data: any }>;
+  signIn: (data: { email: string; password: string }) => Promise<{ error: string | null; data: any }>;
+  signOut: () => Promise<{ error: string | null }>;
 }
