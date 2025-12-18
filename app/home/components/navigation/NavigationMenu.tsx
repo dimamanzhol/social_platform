@@ -93,6 +93,15 @@ export default function NavigationMenu() {
             Likes
           </span>
         </div>
+        <div className="flex items-center gap-2 p-3 rounded-full hover:bg-hover transition-all duration-200 cursor-pointer">
+          <svg viewBox="0 0 24 24" className="w-6 h-6 text-primary" fill="none" stroke="currentColor" strokeWidth="2">
+            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+            <circle cx="12" cy="7" r="4"/>
+          </svg>
+          <span className="text-xl hidden xl:block text-primary font-bold">
+            Profile
+          </span>
+        </div>
       </div>
 
       {/* User Profile Section */}

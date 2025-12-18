@@ -122,7 +122,7 @@ export const mockTweets: Tweet[] = [
     authorId: '1',
     author: mockUsers[0], // Elon Musk
     content: 'Just had a great meeting about the future of sustainable energy. The transition to electric vehicles is accelerating faster than most people think. 🚗⚡',
-    createdAt: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
+    createdAt: new Date('2024-12-18T07:00:00Z'), // 2 hours ago
     likesCount: 456789,
     repostsCount: 12345,
     repliesCount: 7890,
@@ -139,7 +139,7 @@ export const mockTweets: Tweet[] = [
     authorId: '2',
     author: mockUsers[1], // OpenAI
     content: 'GPT-4 Turbo is now available to all Plus users. We\'ve improved performance and reduced costs by 3x. The future of AI assistance is here! 🤖\n\nhttps://openai.com/gpt-4-turbo',
-    createdAt: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
+    createdAt: new Date('2024-12-18T05:00:00Z'), // 4 hours ago
     likesCount: 234567,
     repostsCount: 8765,
     repliesCount: 4321,
@@ -156,7 +156,7 @@ export const mockTweets: Tweet[] = [
     authorId: '3',
     author: mockUsers[2], // Sundar Pichai
     content: 'Excited to share our latest quantum computing breakthrough. We\'ve achieved error correction that brings practical quantum computers one step closer to reality. 📊\n\n#QuantumComputing #GoogleAI',
-    createdAt: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
+    createdAt: new Date('2024-12-18T03:00:00Z'), // 6 hours ago
     likesCount: 345678,
     repostsCount: 9876,
     repliesCount: 5432,
@@ -173,7 +173,7 @@ export const mockTweets: Tweet[] = [
     authorId: '4',
     author: mockUsers[3], // Satya Nadella
     content: 'Microsoft Copilot is transforming how people work and create. Seeing developers build entire applications with natural language is incredible. The AI revolution is just beginning. 💻✨',
-    createdAt: new Date(Date.now() - 8 * 60 * 60 * 1000), // 8 hours ago
+    createdAt: new Date('2024-12-18T01:00:00Z'), // 8 hours ago
     likesCount: 234567,
     repostsCount: 7654,
     repliesCount: 3210,
@@ -190,7 +190,7 @@ export const mockTweets: Tweet[] = [
     authorId: '5',
     author: mockUsers[4], // Tim Cook
     content: 'Apple Vision Pro is changing how we interact with technology. The spatial computing era has begun. This is just the beginning of what\'s possible when you blend the digital and physical worlds seamlessly. 🥽✨',
-    createdAt: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 hours ago
+    createdAt: new Date('2024-12-17T21:00:00Z'), // 12 hours ago
     likesCount: 567890,
     repostsCount: 15432,
     repliesCount: 8765,
@@ -207,7 +207,7 @@ export const mockTweets: Tweet[] = [
     authorId: '6',
     author: mockUsers[5], // Demis Hassabis
     content: 'AlphaFold has now predicted the structure of over 200 million proteins. This breakthrough is accelerating drug discovery and helping scientists tackle some of humanity\'s biggest challenges. 🧬🔬',
-    createdAt: new Date(Date.now() - 24 * 60 * 60 * 1000), // 1 day ago
+    createdAt: new Date('2024-12-17T09:00:00Z'), // 1 day ago
     likesCount: 189765,
     repostsCount: 6543,
     repliesCount: 2109,
@@ -224,7 +224,7 @@ export const mockTweets: Tweet[] = [
     authorId: '1',
     author: mockUsers[0], // Elon Musk - reply tweet
     content: '@openai This is great progress! Competition in AI benefits everyone. Looking forward to seeing what you build next.',
-    createdAt: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
+    createdAt: new Date('2024-12-18T06:00:00Z'), // 3 hours ago
     likesCount: 123456,
     repostsCount: 4321,
     repliesCount: 876,
@@ -360,7 +360,7 @@ export const mockNotifications = [
     user: mockUsers[0], // Elon Musk
     tweet: mockTweets[0],
     text: 'liked your tweet',
-    timestamp: new Date(Date.now() - 1 * 60 * 60 * 1000), // 1 hour ago
+    timestamp: new Date('2024-12-18T08:00:00Z'), // 1 hour ago
     isRead: false
   },
   {
@@ -369,7 +369,7 @@ export const mockNotifications = [
     user: mockUsers[1], // OpenAI
     tweet: mockTweets[1],
     text: 'reposted your tweet',
-    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
+    timestamp: new Date('2024-12-18T07:00:00Z'), // 2 hours ago
     isRead: false
   },
   {
@@ -377,7 +377,7 @@ export const mockNotifications = [
     type: 'follow',
     user: mockUsers[2], // Sundar Pichai
     text: 'followed you',
-    timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
+    timestamp: new Date('2024-12-18T06:00:00Z'), // 3 hours ago
     isRead: true
   },
   {
@@ -386,7 +386,7 @@ export const mockNotifications = [
     user: mockUsers[3], // Satya Nadella
     tweet: mockTweets[3],
     text: 'mentioned you',
-    timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
+    timestamp: new Date('2024-12-18T05:00:00Z'), // 4 hours ago
     isRead: true
   },
   {
@@ -395,7 +395,7 @@ export const mockNotifications = [
     user: mockUsers[4], // Tim Cook
     tweet: mockTweets[4],
     text: 'liked your tweet',
-    timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 hours ago
+    timestamp: new Date('2024-12-18T04:00:00Z'), // 5 hours ago
     isRead: true
   },
   {
@@ -404,7 +404,7 @@ export const mockNotifications = [
     user: mockUsers[5], // Demis Hassabis
     tweet: mockTweets[5],
     text: 'replied to your tweet',
-    timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
+    timestamp: new Date('2024-12-18T03:00:00Z'), // 6 hours ago
     isRead: true
   },
   {
@@ -412,7 +412,7 @@ export const mockNotifications = [
     type: 'follow',
     user: mockUsers[0], // Elon Musk
     text: 'followed you',
-    timestamp: new Date(Date.now() - 8 * 60 * 60 * 1000), // 8 hours ago
+    timestamp: new Date('2024-12-18T01:00:00Z'), // 8 hours ago
     isRead: true
   },
   {
@@ -421,7 +421,7 @@ export const mockNotifications = [
     user: mockUsers[1], // OpenAI
     tweet: mockTweets[1],
     text: 'quoted your tweet',
-    timestamp: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 hours ago
+    timestamp: new Date('2024-12-17T21:00:00Z'), // 12 hours ago
     isRead: true
   }
 ];
@@ -434,7 +434,7 @@ export const mockConversations = [
     lastMessage: {
       id: 'm1',
       content: 'Just had a great meeting about the future of sustainable energy. The transition to electric vehicles is accelerating faster than most people think. 🚗⚡',
-      timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
+      timestamp: new Date('2024-12-18T07:00:00Z'), // 2 hours ago
       isRead: false,
       senderId: mockUsers[0].id
     },
@@ -447,7 +447,7 @@ export const mockConversations = [
     lastMessage: {
       id: 'm2',
       content: 'GPT-4 Turbo is now available to all Plus users!',
-      timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
+      timestamp: new Date('2024-12-18T05:00:00Z'), // 4 hours ago
       isRead: true,
       senderId: mockUsers[1].id
     },
@@ -460,7 +460,7 @@ export const mockConversations = [
     lastMessage: {
       id: 'm3',
       content: 'Excited to share our latest quantum computing breakthrough.',
-      timestamp: new Date(Date.now() - 6 * 60 * 60 * 1000), // 6 hours ago
+      timestamp: new Date('2024-12-18T03:00:00Z'), // 6 hours ago
       isRead: true,
       senderId: mockUsers[2].id
     },
@@ -473,7 +473,7 @@ export const mockConversations = [
     lastMessage: {
       id: 'm4',
       content: 'Microsoft Copilot is transforming how people work and create.',
-      timestamp: new Date(Date.now() - 8 * 60 * 60 * 1000), // 8 hours ago
+      timestamp: new Date('2024-12-18T01:00:00Z'), // 8 hours ago
       isRead: false,
       senderId: mockUsers[3].id
     },
@@ -486,7 +486,7 @@ export const mockConversations = [
     lastMessage: {
       id: 'm5',
       content: 'Apple Vision Pro is changing how we interact with technology.',
-      timestamp: new Date(Date.now() - 12 * 60 * 60 * 1000), // 12 hours ago
+      timestamp: new Date('2024-12-17T21:00:00Z'), // 12 hours ago
       isRead: true,
       senderId: 'current-user'
     },
@@ -501,7 +501,7 @@ export const mockMessages = [
     conversationId: '1',
     senderId: mockUsers[0].id,
     content: 'Hey! Just wanted to share some exciting news about Tesla\'s latest developments.',
-    timestamp: new Date(Date.now() - 3 * 60 * 60 * 1000), // 3 hours ago
+    timestamp: new Date('2024-12-18T06:00:00Z'), // 3 hours ago
     isRead: true
   },
   {
@@ -517,7 +517,7 @@ export const mockMessages = [
     conversationId: '1',
     senderId: mockUsers[0].id,
     content: 'Just had a great meeting about the future of sustainable energy. The transition to electric vehicles is accelerating faster than most people think. 🚗⚡',
-    timestamp: new Date(Date.now() - 2 * 60 * 60 * 1000), // 2 hours ago
+    timestamp: new Date('2024-12-18T07:00:00Z'), // 2 hours ago
     isRead: false
   },
   {
@@ -525,7 +525,7 @@ export const mockMessages = [
     conversationId: '1',
     senderId: mockUsers[0].id,
     content: 'We\'re seeing incredible adoption rates worldwide. People are really embracing the change.',
-    timestamp: new Date(Date.now() - 1.5 * 60 * 60 * 1000), // 1.5 hours ago
+    timestamp: new Date('2024-12-18T06:30:00Z'), // 1.5 hours ago
     isRead: false
   },
   {
@@ -533,7 +533,7 @@ export const mockMessages = [
     conversationId: '2',
     senderId: 'current-user',
     content: 'Hi! I\'m really interested in the new GPT-4 Turbo features.',
-    timestamp: new Date(Date.now() - 5 * 60 * 60 * 1000), // 5 hours ago
+    timestamp: new Date('2024-12-18T04:00:00Z'), // 5 hours ago
     isRead: true
   },
   {
@@ -541,7 +541,7 @@ export const mockMessages = [
     conversationId: '2',
     senderId: mockUsers[1].id,
     content: 'GPT-4 Turbo is now available to all Plus users! We\'ve improved performance and reduced costs by 3x.',
-    timestamp: new Date(Date.now() - 4 * 60 * 60 * 1000), // 4 hours ago
+    timestamp: new Date('2024-12-18T05:00:00Z'), // 4 hours ago
     isRead: true
   }
 ];
@@ -570,7 +570,7 @@ export const mockBookmarkedTweets = [
     authorId: '2',
     author: mockUsers[1], // OpenAI
     content: 'GPT-4 Turbo is now available to all Plus users. We\'ve improved performance and reduced costs by 3x. The future of AI assistance is here! 🤖\n\nLearn more: openai.com/gpt-4-turbo',
-    createdAt: new Date(Date.now() - 48 * 60 * 60 * 1000), // 2 days ago
+    createdAt: new Date('2024-12-16T09:00:00Z'), // 2 days ago
     likesCount: 234567,
     repostsCount: 8765,
     repliesCount: 4321,
@@ -587,7 +587,7 @@ export const mockBookmarkedTweets = [
     authorId: '3',
     author: mockUsers[2], // Sundar Pichai
     content: 'Excited to share our latest quantum computing breakthrough. We\'ve achieved error correction that brings practical quantum computers one step closer to reality. 📊\n\n#QuantumComputing #GoogleAI',
-    createdAt: new Date(Date.now() - 72 * 60 * 60 * 1000), // 3 days ago
+    createdAt: new Date('2024-12-15T09:00:00Z'), // 3 days ago
     likesCount: 345678,
     repostsCount: 9876,
     repliesCount: 5432,
@@ -604,7 +604,7 @@ export const mockBookmarkedTweets = [
     authorId: '4',
     author: mockUsers[3], // Satya Nadella
     content: 'Microsoft Copilot is transforming how people work and create. Seeing developers build entire applications with natural language is incredible. The AI revolution is just beginning. 💻✨',
-    createdAt: new Date(Date.now() - 96 * 60 * 60 * 1000), // 4 days ago
+    createdAt: new Date('2024-12-14T09:00:00Z'), // 4 days ago
     likesCount: 234567,
     repostsCount: 7654,
     repliesCount: 3210,
@@ -621,7 +621,7 @@ export const mockBookmarkedTweets = [
     authorId: '5',
     author: mockUsers[4], // Tim Cook
     content: 'Apple Vision Pro is changing how we interact with technology. The spatial computing era has begun. This is just the beginning of what\'s possible when you blend the digital and physical worlds seamlessly. 🥽✨',
-    createdAt: new Date(Date.now() - 120 * 60 * 60 * 1000), // 5 days ago
+    createdAt: new Date('2024-12-13T09:00:00Z'), // 5 days ago
     likesCount: 567890,
     repostsCount: 15432,
     repliesCount: 8765,
